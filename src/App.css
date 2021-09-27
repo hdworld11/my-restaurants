@@ -15,9 +15,12 @@
 
 #map { /* The id of the container you passed to createMap */
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
+  top: 25%;
+  bottom: 25%;
+  left: 25%;
+  right: 25%;
+  width: 50%;
+  height: 50%;
 }
 
 .App-header {
