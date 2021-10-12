@@ -40,6 +40,15 @@
       "mapStyle": "VectorEsriStreets",
       "pricingPlan": "RequestBasedUsage",
       "accessType": "AuthorizedAndGuestUsers"
+    },
+    "placeindexa20b5fd2": {
+      "isDefault": true,
+      "providerPlugin": "awscloudformation",
+      "service": "PlaceIndex",
+      "dataProvider": "Esri",
+      "dataSourceIntendedUse": "SingleUse",
+      "pricingPlan": "RequestBasedUsage",
+      "accessType": "AuthorizedAndGuestUsers"
     }
   }
 }

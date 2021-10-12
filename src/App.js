@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Amplify from 'aws-amplify';
-import awsconfig from './aws-exports';
-import { createMap} from "maplibre-gl-js-amplify";
+import { createMap, createAmplifyGeocoder} from "maplibre-gl-js-amplify";
 import { drawPoints } from "maplibre-gl-js-amplify";
 import "maplibre-gl/dist/maplibre-gl.css";
-Amplify.configure(awsconfig);
+import {useEffect} from 'react';
+import maplibregl from "maplibre-gl";
+import "@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css";
+// import "maplibre-gl-js-amplify/dist/public/amplify-geocoder.css"; // Optional CSS for Amplify recommended styling
+
 
 async function initializeMap() {
   const map = await createMap({
@@ -13,7 +15,10 @@ async function initializeMap() {
       center: [-73.98597609730648, 40.751874635721734],
       zoom: 11,
   })
+  return map;
+}
 
+function addRestaurantLocations(map) {
   map.on("load", function () {
     drawPoints("mySourceName", // Arbitrary source name
         [
@@ -44,15 +49,31 @@ async function initializeMap() {
             },
         }
     );
-});
+  });
+
+  map.addControl(createAmplifyGeocoder())
 }
 
-initializeMap();
-
 function App() {
+
+  useEffect( async () => {
+    const map = await initializeMap();
+    addRestaurantLocations(map);
+
+    return function cleanup() {
+      map.remove();
+    };
+
+  }, []);
+
   return (
     <div className="App">
       <h1>My Restaurant</h1>
+      <ul id="locations">
+        <li><b>My Restaurant - Upper East Side</b> <br/> 300 E 77th St, New York, NY 10075 </li>
+        <li><b>My Restaurant - Hell's Kitchen</b><br/> 725 9th Ave, New York, NY 10019</li>
+        <li><b>My Restaurant - Lower East Side</b><br/> 102 Norfolk St, New York, NY 10002</li>
+      </ul>
       <div id="map"></div>
     </div>
   );
