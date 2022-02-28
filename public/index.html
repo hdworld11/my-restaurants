@@ -3,12 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <link href="https://cdn.amplify.aws/packages/maplibre-gl/1.15.2/maplibre-gl.css" rel="stylesheet" integrity="sha384-DrPVD9GufrxGb7kWwRv0CywpXTmfvbKOZ5i5pN7urmIThew0zXKTME+gutUgtpeD" crossorigin="anonymous" referrerpolicy="no-referrer"></link>
-<script src="https://cdn.amplify.aws/packages/maplibre-gl/1.15.2/maplibre-gl.js" integrity="sha384-rwYfkmAOpciZS2bDuwZ/Xa/Gog6jXem8D/whm3wnsZSVFemDDlprcUXHnDDUcrNU" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.amplify.aws/packages/core/4.3.0/aws-amplify-core.min.js" integrity="sha384-7Oh+5w0l7XGyYvSqbKi2Q7SA5K640V5nyW2/LEbevDQEV1HMJqJLA1A00z2hu8fJ" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.amplify.aws/packages/auth/4.3.8/aws-amplify-auth.min.js" integrity="sha384-jfkXCEfYyVmDXYKlgWNwv54xRaZgk14m7sjeb2jLVBtUXCD2p+WU8YZ2mPZ9Xbdw" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.amplify.aws/packages/geo/1.1.0/aws-amplify-geo.min.js" integrity="sha384-TFMTyWuCbiptXTzvOgzJbV8TPUupG1rA1AVrznAhCSpXTIdGw82bGd8RTk5rr3nP" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.amplify.aws/packages/maplibre-gl-js-amplify/1.1.0/maplibre-gl-js-amplify.umd.min.js" integrity="sha384-7/RxWonKW1nM9zCKiwU9x6bkQTjldosg0D1vZYm0Zj+K/vUSnA3sOMhlRRWAtHPi" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -35,18 +29,6 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <div id="map"></div>
-    <script type="module">
-      import awsconfig from "./aws-exports.js";
-            const { Amplify } = aws_amplify_core;
-            const { createMap } = AmplifyMapLibre;
-            Amplify.configure(awsconfig);
-            createMap({
-                container: "map",
-                center: [-123.1187, 49.2819],
-                zoom: 13,
-            });
-  </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

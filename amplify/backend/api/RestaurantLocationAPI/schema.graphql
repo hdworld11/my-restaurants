@@ -1,0 +1,7 @@
+type Branch @model {
+  id: ID!
+  name: String!
+  description: String
+  latitude: Float!
+  longitude: Float!
+}

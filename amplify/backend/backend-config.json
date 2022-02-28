@@ -50,5 +50,23 @@
       "pricingPlan": "RequestBasedUsage",
       "accessType": "AuthorizedAndGuestUsers"
     }
+  },
+  "api": {
+    "RestaurantLocationAPI": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "description": "RestaurantLocationAPIKey"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
   }
 }
